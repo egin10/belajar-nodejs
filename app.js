@@ -4,14 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var connection  = require('express-myconnection'); 
+var connection  = require('express-myconnection');
 var mysql = require('mysql');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+// TODO sharusnya diPisah lagi ada file yg isi nya cuma config utuk database
+// biar mudah projek dev dan projek ke production
 var app = express();
+<<<<<<< HEAD
 app.use(    
     connection(mysql,{        
+=======
+app.use(
+    connection(mysql,{
+>>>>>>> master
       host     : 'localhost',
       user     : 'developing',
       password : 'devPASSWORD',

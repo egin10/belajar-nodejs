@@ -18,7 +18,7 @@ app.use(
       database : 'dev_console',
       port     : 3306,
     },'request')
-);//route index, hello world
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,25 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var mysql = require('mysql');
 
-//connecting to database (mariadb)
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'apasih10',
-  database : 'nodejs'
-});
-connection.connect();
-connection.query('USE nodejs', function(err, rows, fields) {
-  if (err) throw err;
-  console.log('database connected');
-});
-
-/* GET users listing. */
-router.get('/', function(req, res) {
-  connection.query('SELECT * FROM contacts', function(err, rows, fields){
-    res.json(rows);
-  });
+router.get('/', function(req, res, connection) {
+  req.getConnection(function(err,connection){       
+     connection.query('SELECT * FROM contacts',function(err,rows)     {            
+        if(err)
+           console.log("Error Selecting : %s ",err );     
+           res.json(rows);                           
+         });       
+    });
 });
 
 module.exports = router;

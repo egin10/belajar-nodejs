@@ -12,11 +12,11 @@ var users = require('./routes/users');
 var app = express();
 app.use(    
     connection(mysql,{        
-        host: 'localhost',
-        user: 'fendi',
-        password : 'as6785A',
-        port : 3306, //port mysql
-        database:'dev_console'
+      host     : 'localhost',
+      user     : 'developing',
+      password : 'devPASSWORD',
+      database : 'dev_console',
+      port     : 3306,
     },'request')
 );//route index, hello world
 

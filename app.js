@@ -11,13 +11,8 @@ var users = require('./routes/users');
 // TODO sharusnya diPisah lagi ada file yg isi nya cuma config utuk database
 // biar mudah projek dev dan projek ke production
 var app = express();
-<<<<<<< HEAD
-app.use(    
-    connection(mysql,{        
-=======
 app.use(
     connection(mysql,{
->>>>>>> master
       host     : 'localhost',
       user     : 'developing',
       password : 'devPASSWORD',

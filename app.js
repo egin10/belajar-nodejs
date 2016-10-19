@@ -8,15 +8,15 @@ var connection  = require('express-myconnection');
 var mysql = require('mysql');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-// TODO sharusnya diPisah lagi ada file yg isi nya cuma config utuk database
+// TODO sharusnya diPisah lagi ada file yg isi nya cuma config untuk database
 // biar mudah projek dev dan projek ke production
 var app = express()
 app.use(
     connection(mysql,{
       host     : 'localhost',
-      user     : 'developing',
-      password : 'devPASSWORD',
-      database : 'dev_console',
+      user     : 'root',
+      password : '123456',
+      database : 'nodejs',
       port     : 3306,
     },'request')
 );

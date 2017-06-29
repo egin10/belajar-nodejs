@@ -11,21 +11,20 @@
         <table border="1">
           <thead>
             <tr align="center" bgcolor="yellow">
-              <td><b>ID</b></td>
               <td><b>Name of Events</b></td>
               <td><b>Descriptions</b></td>
-              <td><b>Date</b></td>
               <td><b>Action</b></td>
             </tr>
           </thead>
           <tbody>
           {% for d in data %}
             <tr>
-              <td>{{ d.event_id }}</td>
               <td>{{ d.event_name }}</td>
               <td>{{ d.descriptions }}</td>
-              <td>{{ d.event_date }}</td>
-              <td>Update | Delete</td>
+              <td>
+                <a href="/events/edit/{{ d.event_id }}">Update</a> |
+                <a href="/events/delete/{{ d.event_id }}">Delete</a>
+              </td>
             </tr>
             {% endfor %}
           </tbody>

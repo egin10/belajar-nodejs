@@ -8,17 +8,18 @@
     <div class="container">
       <h1>Add New Event</h1>
 
-      <form class="" action="/events/add" method="post">
+      <form class="" action="/events/edit" method="post">
         <div class="">
           <label for="">Event Name</label>
-          <input type="text" name="event_name" placeholder="Event Name">
+          <input type="text" name="event_name" placeholder="Event Name" value="{{d.event_name}}">
         </div>
         <div class="">
           <label for="">Descriptions</label>
-          <textarea name="descriptions" rows="8" cols="80"></textarea>
+          <textarea name="descriptions" rows="8" cols="80">{{d.descriptions}}</textarea>
         </div>
         <div class="">
           <input type="submit" value="Submit">
+          <a href="/events">Back</a>
         </div>
       </form>
 

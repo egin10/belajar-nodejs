@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add New Event</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add New Event</h1>
+
+      <form class="" action="/events/add" method="post">
+        <div class="">
+          <label for="">Event Name</label>
+          <input type="text" name="name_event" placeholder="Event Name">
+        </div>
+        <div class="">
+          <label for="">Descriptions</label>
+          <textarea name="descriptions" rows="8" cols="80"></textarea>
+        </div>
+        <div class="">
+          <label for="">Date of Event</label>
+          <input type="date" name="event_date" placeholder="dd-mm-yy">
+        </div>
+        <div class="">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>

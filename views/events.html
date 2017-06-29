@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List Events</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>List of Events</h1>
+      <br>
+        <table border="1">
+          <thead>
+            <tr align="center" bgcolor="yellow">
+              <td><b>ID</b></td>
+              <td><b>Name of Events</b></td>
+              <td><b>Descriptions</b></td>
+              <td><b>Date</b></td>
+              <td><b>Action</b></td>
+            </tr>
+          </thead>
+          <tbody>
+          {% for d in data %}
+            <tr>
+              <td>{{ d.event_id }}</td>
+              <td>{{ d.event_name }}</td>
+              <td>{{ d.descriptions }}</td>
+              <td>{{ d.event_date }}</td>
+              <td>Update | Delete</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <a href="/events/add">Add New Event</a>
+    </div>
+  </body>
+</html>

@@ -19,7 +19,7 @@
         </div>
         <div class="">
           <label for="">Date</label>
-          <input type="date" name="event_date" value="{{d.event_date}}">
+          <input type="date" name="event_date" value="{{ moment(d.event_date).format('YYYY-MM-DD')}}">
         </div>
         <div class="">
           <input type="submit" value="Submit">

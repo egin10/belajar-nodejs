@@ -22,7 +22,7 @@
             <tr>
               <td>{{ d.event_name }}</td>
               <td>{{ d.descriptions }}</td>
-              <td>{{ toString(d.event_date) }}</td>
+              <td>{{ moment(d.event_date).format('DD-MM-YYYY') }}</td>
               <td>
                 <a href="/events/edit/{{ d.event_id }}">Update</a> |
                 <a href="/events/delete/{{ d.event_id }}">Delete</a>

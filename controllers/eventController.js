@@ -1,4 +1,5 @@
 var connection = require('./mysql');
+var moment = require('moment');
 
 var id = "";
 
@@ -7,8 +8,8 @@ module.exports = {
       connection.query('SELECT * FROM events', function(err, rows, field){
         if(err) throw err;
 
-        res.render('events', { data: rows });
-        console.log(rows);
+        res.render('events', { data: rows, moment: moment });
+        // console.log(rows);
       });
     },
     addGet: function(req, res){
@@ -34,7 +35,7 @@ module.exports = {
         if(err) throw err;
 
         if(rows){
-          res.render('edit_event', { d: rows[0] });
+          res.render('edit_event', { d: rows[0], moment:moment });
         } else {
           res.writeHead(404, {"Content-type":"text/plain"});
           res.end("Page Not Found");

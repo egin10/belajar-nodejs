@@ -20,8 +20,9 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_id` int(11) NOT NULL auto_increment,
   `event_name` varchar(50) NOT NULL,
   `descriptions` text NOT NULL,
+  `event_date` date NOT NULL,
   PRIMARY KEY  (`event_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

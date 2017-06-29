@@ -6,7 +6,7 @@ Learn nodejs using express 4.x
 user: 'root',
 password: '',
 database: 'belajar_nodejs',
-port : 3306`, you can see database structure on file `database.sql` or you can import it to your mysql database.
+port : 3306`, you can see database structure on file `belajar_nodejs.sql` or you can import it to your mysql database.
 4. run using `npm start` or `nodemon app`
 5. server is running on `http://localhost:3000/`
 

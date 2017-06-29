@@ -8,7 +8,7 @@ module.exports = {
         if(err) throw err;
 
         res.render('events', { data: rows });
-        // console.log(rows);
+        console.log(rows);
       });
     },
     addGet: function(req, res){
@@ -17,7 +17,8 @@ module.exports = {
     addPost: function(req, res){
         var data = {
           event_name: req.body.event_name,
-          descriptions: req.body.descriptions
+          descriptions: req.body.descriptions,
+          event_date: req.body.event_date
         };
         connection.query('INSERT INTO events SET ?', data , function(err, field){
           if(err) throw err;
@@ -43,7 +44,8 @@ module.exports = {
     editPost: function(req, res){
       var newData = {
         event_name: req.body.event_name,
-        descriptions: req.body.descriptions
+        descriptions: req.body.descriptions,
+        event_date: req.body.event_date
       };
 
       connection.query('UPDATE events SET ? WHERE ?',

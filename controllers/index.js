@@ -1,12 +1,10 @@
 var connection = require('./mysql');
-
-var sess = null;
-var dataUser = null;
+var isAuth = require('./../isAuth');
 
 module.exports = {
-    index: function(req, res, next) {
-      if(sess != null){
-        res.render('index', { title: 'Home Page', header: 'Welcome '+ dataUser +' !' });
+    index: function(req, res) {
+      if(isAuth.session_ID != null){
+        res.render('index', { title: 'Home Page', header: 'Welcome '+ isAuth.dataUser +' !' });
       } else {
         res.send('You must login first! <a href="/login">Log In</a>');
       }
@@ -22,8 +20,8 @@ module.exports = {
         if(err) throw err;
 
         if(data != null){
-          sess = req.sessionID;
-          dataUser = data[0].username;
+          isAuth.session_ID = req.sessionID;
+          isAuth.dataUser = data[0].username;
           res.redirect('/');
         } else {
           console.log('User Not Found');
@@ -33,7 +31,14 @@ module.exports = {
       });
     },
     logout: function(req, res){
-      req.session.distroy();
-      res.redirect('/events');
+      req.session.destroy(function(err){
+        if(err){
+          console.log(err);
+        } else {
+          // console.log('User Logout');
+          isAuth.session_ID = null;
+          res.redirect('/events');
+        }
+      });
     }
 }

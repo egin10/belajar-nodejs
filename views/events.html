@@ -14,7 +14,9 @@
               <td><b>Name of Events</b></td>
               <td><b>Descriptions</b></td>
               <td><b>Date</b></td>
+              {% if checkUser == true %}
               <td><b>Action</b></td>
+              {% endif %}
             </tr>
           </thead>
           <tbody>
@@ -23,15 +25,19 @@
               <td>{{ d.event_name }}</td>
               <td>{{ d.descriptions }}</td>
               <td>{{ moment(d.event_date).format('DD-MM-YYYY') }}</td>
+              {% if checkUser == true %}
               <td>
                 <a href="/events/edit/{{ d.event_id }}">Update</a> |
                 <a href="/events/delete/{{ d.event_id }}">Delete</a>
               </td>
+              {% endif %}
             </tr>
             {% endfor %}
           </tbody>
         </table>
+        {% if checkUser == true %}
         <a href="/events/add">Add New Event</a>
+        {% endif %}
     </div>
   </body>
 </html>

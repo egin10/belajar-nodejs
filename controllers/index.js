@@ -3,11 +3,7 @@ var isAuth = require('./../isAuth');
 
 module.exports = {
     index: function(req, res) {
-      if(isAuth.session_ID != null){
-        res.render('index', { title: 'Home Page', header: 'Welcome '+ isAuth.dataUser +' !' });
-      } else {
-        res.send('You must login first! <a href="/login">Log In</a>');
-      }
+      res.render('index', { title: 'Home Page', user: req.session.user });
     },
     loginGet: function(req, res){
       res.render('login');
@@ -19,14 +15,13 @@ module.exports = {
       [ email, password ], function(err, data){
         if(err) throw err;
 
-        if(data != null){
-          isAuth.session_ID = req.sessionID;
-          isAuth.dataUser = data[0].username;
-          res.redirect('/');
+        if(data.length == ''){
+          res.writeHead(404, {"Content-type":"text/html"});
+          res.end('User Not Found! <a href="/login">Log In</a>');
         } else {
-          console.log('User Not Found');
-          res.writeHead(404, {"Content-type":"text/plain"});
-          res.end('User Not Found');
+          req.session.isLogin = true;
+          req.session.user = data[0].username;
+          res.redirect('/');
         }
       });
     },
@@ -36,7 +31,6 @@ module.exports = {
           console.log(err);
         } else {
           // console.log('User Logout');
-          isAuth.session_ID = null;
           res.redirect('/events');
         }
       });
